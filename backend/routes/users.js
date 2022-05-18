@@ -6,9 +6,11 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
+  //axios.get/users
+  //response.data.users....<user>,<userlist>
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
