@@ -7,17 +7,16 @@ import SignIn from './components/SignIn';
 import About from './components/About';
 import AdminDashboard from './pages/AdminDashboard';
 import GuardianDashboard from './pages/GuardianDashboard';
-
 function App() {
   const [userType, setUserType] = useState("admin");
   return (
     <BrowserRouter>
       <div className="App">
-      <nav>
-        <Link to="/">Home</Link>{' '}
-        <Link to="/about">About</Link>{' '}
-        <Link to="/signin">Sign In</Link>{' '}
-      </nav>
+        <nav>
+          <Link to="/">Home</Link>{' '}
+          <Link to="/about">About</Link>{' '}
+          <Link to="/signin">Sign In</Link>{' '}
+        </nav>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -41,5 +40,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
