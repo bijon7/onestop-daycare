@@ -1,28 +1,63 @@
 .admin-dashboard {
-  border: 3px solid black;
+  //border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.dashboard {
   display: flex;
   height: 100vh;
 }
 
-.left, .right {
+.left {
+  display: flex;
+  height: 100%;
+  width: 65%;
+}
+
+.right {
+  height: 100%;
+  width: 35%;
+}
+
+.new-application {
+  border: 2px solid rgb(187, 187, 187);
+  border-radius: 10px;
   height: 100%;
   width: 50%;
 }
 
-.review-section {
-  border: 2px solid rgb(180, 30, 30);
-  height: 33%;
-}
-
-.new-application {
-  border: 2px solid rgb(30, 58, 180);
+.application1, .application2 {
+  border: 2px solid rgb(187, 187, 187);
+  border-radius: 10px;
+  margin: 10px;
+  height: 44.5%;
 }
 
 .requirements-amenities {
-  border: 2px solid rgb(170, 180, 30);
+  border: 2px solid rgb(187, 187, 187);
+  border-radius: 10px;
+  height: 100%;
+  width: 50%;
 }
 
 .monthly-schedule {
-  border: 2px solid rgb(30, 180, 123);
+  border: 2px solid rgb(187, 187, 187);
+  border-radius: 10px;
   height: 100%;
+}
+
+.months {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 92%;
+  text-align: left;
+}
+
+.jan, .feb, .mar, .apr, .may, .jun, .jul, .aug, .sep, .oct, .nov, .dec {
+  display: flex;
+  border: 1px solid rgb(187, 187, 187);
+  height: 8.4%;
 }
