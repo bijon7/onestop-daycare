@@ -1,6 +1,31 @@
+import { useState } from "react";
 import "./AdminDashboard.scss";
 
+const calendarData = {
+  name: "Daycare X",
+  rating: 3,
+  jan: "full",
+  feb: "full",
+  mar: "full",
+  apr: "full",
+  may: "full",
+  jun: "2 spots",
+  jul: "2 spots",
+  aug: "4 spots",
+  sep: "4 spots",
+  oct: "4 spots",
+  nov: "4 spots",
+  dec: "4 spots",
+};
+
+
 const AdminDashboard = () => {
+
+  const [capacity, setCapacity] = useState("30");
+  const [bio, setBio] = useState("Apply your child for our daycare!");
+  const [title, setTitle] = useState("Daycare X");
+  const [age, setAge] = useState("0-7");
+
   return (
     <div className="admin-dashboard">
       <div className="daycare-name">
@@ -13,12 +38,30 @@ const AdminDashboard = () => {
             <div className="application1">
               <p>Application</p>
             </div>
-            <div className="application2">
-            <p>Application</p>
-            </div>
           </div>
-          <div className="requirements-amenities">
-            <h3>Requirements and Amenities</h3>
+          <div className="daycare-profile">
+            <h3>Update Profile</h3>
+            <form className="daycare-profile-form">
+              <label>Max Capacity:
+                <input id="capacity" type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
+              </label>
+              <label>Bio:
+                <input id="bio" type="text" value={bio} onChange={(e) => setBio(e.target.value)} />
+              </label>
+              <label>Daycare Title:
+                <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+              </label>
+              <label>Age Group:
+                <input id="age" type="text" value={age} onChange={(e) => setAge(e.target.value)} />
+              </label>
+            </form>
+            <div className="displayed-profile">
+              <h3>Daycare Profile</h3>
+              <h4 id="daycare-title">{title}</h4>
+              <p>Maximum capacity of children: {capacity}.</p>
+              <p>{bio}</p>
+              <p>The age range of children is {age}.</p>
+            </div>
           </div>
         </div>
         <div className="right">
@@ -27,39 +70,51 @@ const AdminDashboard = () => {
             <div className="months">
               <div className="jan">
                 <h4>JAN</h4>
+                <h4>{calendarData.jan}</h4>
               </div>
               <div className="feb">
                 <h4>FEB</h4>
+                <h4>{calendarData.feb}</h4>
               </div>
               <div className="mar">
                 <h4>MAR</h4>
+                <h4>{calendarData.mar}</h4>
               </div>
               <div className="apr">
                 <h4>APR</h4>
+                <h4>{calendarData.apr}</h4>
               </div>
               <div className="may">
                 <h4>MAY</h4>
+                <h4>{calendarData.may}</h4>
               </div>
               <div className="jun">
                 <h4>JUN</h4>
+                <h4>{calendarData.jun}</h4>
               </div>
               <div className="jul">
                 <h4>JUL</h4>
+                <h4>{calendarData.jul}</h4>
               </div>
               <div className="aug">
                 <h4>AUG</h4>
+                <h4>{calendarData.aug}</h4>
               </div>
               <div className="sep">
                 <h4>SEP</h4>
+                <h4>{calendarData.sep}</h4>
               </div>
               <div className="oct">
                 <h4>OCT</h4>
+                <h4>{calendarData.oct}</h4>
               </div>
               <div className="nov">
                 <h4>NOV</h4>
+                <h4>{calendarData.nov}</h4>
               </div>
               <div className="dec">
                 <h4>DEC</h4>
+                <h4>{calendarData.dec}</h4>
               </div>
             </div>
           </div>
