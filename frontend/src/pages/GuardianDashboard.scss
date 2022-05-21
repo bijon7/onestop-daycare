@@ -16,8 +16,6 @@
 
 %paper_section {
   min-height: 500px;
-  color: white;
-  background-color: rgb(110, 110, 110);
 }
 
 .guardian-dashboard_mid {
@@ -28,5 +26,3 @@
   @extend %paper_section;
   width: 26%;
 }
-
-
