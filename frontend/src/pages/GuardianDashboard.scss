@@ -1,0 +1,32 @@
+.guardian-dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  height: 90vw;
+}
+
+.guardian-dashboard_sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  width: 42%;
+}
+
+%paper_section {
+  min-height: 500px;
+  color: white;
+  background-color: rgb(110, 110, 110);
+}
+
+.guardian-dashboard_mid {
+  @extend %paper_section;
+}
+
+.guardian-dashboard_col {
+  @extend %paper_section;
+  width: 26%;
+}
+
+
