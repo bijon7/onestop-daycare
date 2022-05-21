@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./AdminDashboard.scss";
+import ChildProfile from "../components/ChildProfile";
 
 const calendarData = {
   name: "Daycare X",
@@ -18,6 +19,25 @@ const calendarData = {
   dec: "4 spots",
 };
 
+const testData = {
+  child: [
+    {
+      id: 1,
+      name: "George",
+      age: "3",
+      special_req: "Peanut Allergies, Eats Vegetarian, Autistic",
+      guardian: 1
+    },
+    {
+      id: 2,
+      name: "Anna",
+      age: "5",
+      special_req: "Eats Vegetarian, Lactose Intolerant",
+      guardian: 1
+    }
+  ]
+}
+
 
 const AdminDashboard = () => {
 
@@ -35,9 +55,19 @@ const AdminDashboard = () => {
         <div className="left">
           <div className="new-application">
             <h3>New Applications</h3>
-            <div className="application1">
-              <p>Application</p>
-            </div>
+
+            {testData.child.map((data) => {
+              return (
+                <ChildProfile
+                  key={data.id}
+                  id={data.id}
+                  name={data.name}
+                  age={data.age}
+                  special_req={data.special_req}
+                  user={data.guardian} />
+              );
+            })}
+
           </div>
           <div className="daycare-profile">
             <h3>Update Profile</h3>

@@ -40,24 +40,17 @@ label {
 .new-application {
   background-color: #ffffff;
   border: 1.5px solid rgb(187, 187, 187);
-  border-radius: 10px;
+  border-radius: 15px;
   height: 100%;
   width: 50%;
   margin: 10px;
   box-shadow: 2px 2px 4px #939393;
 }
 
-.application1 {
-  border: 2px solid rgb(187, 187, 187);
-  border-radius: 10px;
-  margin: 15px;
-  height: 42%;
-}
-
 .daycare-profile {
   background-color: #ffffff;
   border: 1.5px solid rgb(187, 187, 187);
-  border-radius: 10px;
+  border-radius: 15px;
   height: 100%;
   width: 50%;
   margin: 10px;
@@ -79,7 +72,7 @@ label {
 #capacity, #bio, #title, #age {
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
-  border: 2px solid rgb(66, 133, 244);
+  border: 1px solid rgb(66, 133, 244);
   width: 50%;
 }
 
@@ -99,7 +92,7 @@ label {
 .monthly-schedule {
   background-color: #ffffff;
   border: 1.5px solid rgb(187, 187, 187);
-  border-radius: 10px;
+  border-radius: 15px;
   height: 100%;
   margin: 10px;
   box-shadow: 2px 2px 4px #939393;
