@@ -9,7 +9,6 @@ import {
   IconButton
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import "./ChildProfile.scss"
 
 // hardcoded data mimicking axios call to daycare_profiles database
 const testData = {
@@ -117,8 +116,8 @@ export default function DaycareProfile(props) {
           <p>A1A 1A1</p>
           <h3>Who We Are:</h3>
           <p>{daycare.bio}</p>
-          <h3>Age Group We Cater To:</h3>
-          <p>{daycare.age_group}</p>
+          <h3>Age Group We Cater To: {daycare.age_group}</h3>
+          <h3>How Many Kids We Take in: {daycare.max_capacity}</h3>
           <footer>
             <sub>Thank you for checking us out!</sub>
           </footer>
