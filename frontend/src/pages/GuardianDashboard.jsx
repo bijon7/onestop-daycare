@@ -1,5 +1,6 @@
 import { Paper } from "@mui/material"
 import "./GuardianDashboard.scss";
+import ChildProfileList from "../components/ChildProfileList";
 
 export default function GuardianDashboard() {
   return (
@@ -10,6 +11,7 @@ export default function GuardianDashboard() {
         </Paper>
         <Paper elevation={24} className="guardian-dashboard_mid">
           <h1>My Children</h1>
+          <ChildProfileList />
         </Paper>
       </div>
       <Paper elevation={24} className="guardian-dashboard_col">
