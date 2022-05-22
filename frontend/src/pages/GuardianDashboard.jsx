@@ -6,8 +6,10 @@ import ShortList from "../components/ShortList";
 import DayCareSearch from "../components/DayCareSearch";
 
 export default function GuardianDashboard() {
+  const userName = JSON.parse(localStorage.getItem("user")).user.name;
   return (
     <div className="guardian-dashboard">
+      <h4>Welcome {userName} </h4>
       <div className="guardian-dashboard_sections">
         <Paper elevation={24} className="guardian-dashboard_mid">
           <h1>Search Our Daycares</h1>

@@ -5,6 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const morgan = require("morgan");
 
@@ -18,7 +19,8 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
-
+app.use(express.json());
+app.use(cors());
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
