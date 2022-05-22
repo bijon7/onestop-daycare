@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./AdminDashboard.scss";
 import ChildProfile from "../components/ChildProfile";
+import DaycareProfile from "../components/DaycareProfile";
 
 const calendarData = {
   name: "Daycare X",
@@ -35,9 +36,30 @@ const testData = {
       special_req: "Eats Vegetarian, Lactose Intolerant",
       guardian: 1
     }
+  ],
+  shortList: [
+    {
+      id: 1,
+      guardian_id: 1,
+      daycare_id: 1
+    }
   ]
 }
 
+const testUser = {
+  guardian: [
+    {
+      id: 1,
+      name: "Allen Miller",
+      phone: "555 555 5555",
+      email: "allen.miller@email.com",
+      child: [1, 2]
+    }
+  ]
+}
+
+const guardian_id = testUser.guardian[0].id;
+const guardianShortList = testData.shortList.filter((data) => data.guardian_id === guardian_id );
 
 const AdminDashboard = () => {
 
@@ -87,10 +109,17 @@ const AdminDashboard = () => {
             </form>
             <div className="displayed-profile">
               <h3>Daycare Profile</h3>
+              {/*
               <h4 id="daycare-title">{title}</h4>
               <p>Maximum capacity of children: {capacity}.</p>
               <p>{bio}</p>
-              <p>The age range of children is {age}.</p>
+              <p>The age range of children is {age}.</p> */}
+              <DaycareProfile
+                key={guardianShortList[0].id}
+                id={guardianShortList[0].id}
+                guardian={testUser.guardian[0]} // should be a cookie
+                daycare={guardianShortList[0].daycare_id}
+              />
             </div>
           </div>
         </div>

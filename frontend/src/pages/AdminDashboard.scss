@@ -65,7 +65,7 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 40%;
+  height: 60%;
   padding-right: 15%;
 }
 
@@ -77,12 +77,13 @@ label {
 }
 
 .displayed-profile {
-  border: 1.5px solid rgb(187, 187, 187);
+  //border: 1.5px solid rgb(187, 187, 187);
   border-radius: 10px;
-  height: 45%;
+  height: 25%;
   margin: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 
 #submit-button {
