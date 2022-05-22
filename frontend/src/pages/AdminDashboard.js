@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import "./AdminDashboard.scss";
 import ChildProfile from "../components/ChildProfile";
 import DaycareProfile from "../components/DaycareProfile";
@@ -63,10 +63,28 @@ const guardianShortList = testData.shortList.filter((data) => data.guardian_id =
 
 const AdminDashboard = () => {
 
-  const [capacity, setCapacity] = useState("30");
-  const [bio, setBio] = useState("Apply your child for our daycare!");
-  const [title, setTitle] = useState("Daycare X");
-  const [age, setAge] = useState("0-7");
+  const [name, setName] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [bio, setBio] = useState("");
+  const [age, setAge] = useState("");
+  const [capacity, setCapacity] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let formValues = {
+      ["name"]: name,
+      ["street"]: street,
+      ["city"]: city,
+      ["postalCode"]: postalCode,
+      ["bio"]: bio,
+      ["age"]: age,
+      ["capacity"]: capacity,
+    };
+    console.log("Submitted");
+    console.log(formValues);
+  }
 
   return (
     <div className="admin-dashboard">
@@ -93,19 +111,29 @@ const AdminDashboard = () => {
           </div>
           <div className="daycare-profile">
             <h3>Update Profile</h3>
-            <form className="daycare-profile-form">
-              <label>Max Capacity:
-                <input id="capacity" type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
+            <form className="daycare-profile-form" onSubmit={handleSubmit}>
+              <label>Daycare Name:
+                <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+              </label>
+              <label>Street:
+                <input id="street" type="text" value={street} onChange={(e) => setStreet(e.target.value)} />
+              </label>
+              <label>City:
+                <input id="city" type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+              </label>
+              <label>Postal Code:
+                <input id="postalCode" type="text" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
               </label>
               <label>Bio:
                 <input id="bio" type="text" value={bio} onChange={(e) => setBio(e.target.value)} />
               </label>
-              <label>Daycare Title:
-                <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-              </label>
               <label>Age Group:
                 <input id="age" type="text" value={age} onChange={(e) => setAge(e.target.value)} />
               </label>
+              <label>Max Capacity:
+                <input id="capacity" type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
+              </label>
+              <input id="submit-button" type="submit" value="SUBMIT" />
             </form>
             <div className="displayed-profile">
               <h3>Daycare Profile</h3>
