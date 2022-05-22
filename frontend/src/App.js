@@ -7,6 +7,7 @@ import SignIn from './components/SignIn';
 import About from './components/About';
 import AdminDashboard from './pages/AdminDashboard';
 import GuardianDashboard from './pages/GuardianDashboard';
+import DaycareSchedules from './pages/DaycareSchedules';
 import { Button,
   ClickAwayListener,
   Grow,
@@ -115,6 +116,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="guardian" element={<GuardianDashboard />} />
+          <Route path="daycares" element={<DaycareSchedules />} />
         </Routes>
       </div>
     </BrowserRouter>
