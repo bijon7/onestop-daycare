@@ -64,9 +64,11 @@ export default function SignUp(props) {
     event.preventDefault();
     console.log(formValues);
     axios.post('http://localhost:8080/api/users/signup', {...formValues})
-    .then(response => {localStorage.setItem("user", JSON.stringify(response.data))
-  navigate("/guardian")
-  })
+    .then(response => {
+      localStorage.setItem("user", JSON.stringify(response.data))
+      navigate("/guardian")
+
+    })
     .catch(err => console.log("error returning data"))
 
   };
