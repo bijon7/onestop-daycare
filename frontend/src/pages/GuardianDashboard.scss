@@ -1,0 +1,28 @@
+.guardian-dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  height: auto;
+}
+
+.guardian-dashboard_sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: auto;
+  width: 42%;
+}
+
+%paper_section {
+  min-height: 450px;
+}
+
+.guardian-dashboard_mid {
+  @extend %paper_section;
+}
+
+.guardian-dashboard_col {
+  @extend %paper_section;
+  width: 26%;
+}

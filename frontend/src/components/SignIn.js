@@ -1,4 +1,5 @@
 import "./SignIn.scss";
+import SignUp from "./SignUp";
 
 function SignIn() {
   return (
@@ -22,7 +23,7 @@ function SignIn() {
             <div className="NoAccount">
               <p>Don't already have an account?</p>
             </div>
-            <button type="button" id="create">CREATE AN ACCOUNT</button>
+            <SignUp />
           </form>
         </div>
       </div>
