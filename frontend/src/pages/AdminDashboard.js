@@ -3,23 +3,6 @@ import "./AdminDashboard.scss";
 import ChildProfile from "../components/ChildProfile";
 import DaycareProfile from "../components/DaycareProfile";
 
-const calendarData = {
-  name: "Daycare X",
-  rating: 3,
-  jan: "full",
-  feb: "full",
-  mar: "full",
-  apr: "full",
-  may: "full",
-  jun: "2 spots",
-  jul: "2 spots",
-  aug: "4 spots",
-  sep: "4 spots",
-  oct: "4 spots",
-  nov: "4 spots",
-  dec: "4 spots",
-};
-
 const testData = {
   child: [
     {
@@ -42,6 +25,22 @@ const testData = {
       id: 1,
       guardian_id: 1,
       daycare_id: 1
+    }
+  ],
+  calendar: [
+    {
+      jan: "full",
+      feb: "full",
+      mar: "full",
+      apr: "full",
+      may: "full",
+      jun: "2 spots",
+      jul: "2 spots",
+      aug: "4 spots",
+      sep: "4 spots",
+      oct: "4 spots",
+      nov: "4 spots",
+      dec: "4 spots",
     }
   ]
 }
@@ -157,51 +156,51 @@ const AdminDashboard = () => {
             <div className="months">
               <div className="jan">
                 <h4>JAN</h4>
-                <h4>{calendarData.jan}</h4>
+                <h4>{testData.calendar[0].jan}</h4>
               </div>
               <div className="feb">
                 <h4>FEB</h4>
-                <h4>{calendarData.feb}</h4>
+                <h4>{testData.calendar[0].feb}</h4>
               </div>
               <div className="mar">
                 <h4>MAR</h4>
-                <h4>{calendarData.mar}</h4>
+                <h4>{testData.calendar[0].mar}</h4>
               </div>
               <div className="apr">
                 <h4>APR</h4>
-                <h4>{calendarData.apr}</h4>
+                <h4>{testData.calendar[0].apr}</h4>
               </div>
               <div className="may">
                 <h4>MAY</h4>
-                <h4>{calendarData.may}</h4>
+                <h4>{testData.calendar[0].may}</h4>
               </div>
               <div className="jun">
                 <h4>JUN</h4>
-                <h4>{calendarData.jun}</h4>
+                <h4>{testData.calendar[0].jun}</h4>
               </div>
               <div className="jul">
                 <h4>JUL</h4>
-                <h4>{calendarData.jul}</h4>
+                <h4>{testData.calendar[0].jul}</h4>
               </div>
               <div className="aug">
                 <h4>AUG</h4>
-                <h4>{calendarData.aug}</h4>
+                <h4>{testData.calendar[0].aug}</h4>
               </div>
               <div className="sep">
                 <h4>SEP</h4>
-                <h4>{calendarData.sep}</h4>
+                <h4>{testData.calendar[0].sep}</h4>
               </div>
               <div className="oct">
                 <h4>OCT</h4>
-                <h4>{calendarData.oct}</h4>
+                <h4>{testData.calendar[0].oct}</h4>
               </div>
               <div className="nov">
                 <h4>NOV</h4>
-                <h4>{calendarData.nov}</h4>
+                <h4>{testData.calendar[0].nov}</h4>
               </div>
               <div className="dec">
                 <h4>DEC</h4>
-                <h4>{calendarData.dec}</h4>
+                <h4>{testData.calendar[0].dec}</h4>
               </div>
             </div>
           </div>
