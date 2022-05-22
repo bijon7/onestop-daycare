@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useSearchParams } from "react-router-dom";
 import { FormControl, InputLabel, Input, TextField, Button } from "@mui/material";
+import axios from "axios";
+
 
 // /callender
 // /calendar/?search=toronto
@@ -15,7 +17,7 @@ const defaultValues = {
   search: ""
 }
 export default function DayCareSearch() {
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [formValues, setFormValues] = React.useState(defaultValues);
 
   const handleInputChange = (e) => {
@@ -26,9 +28,17 @@ export default function DayCareSearch() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formValues); // currently sends nothing to the backend, need to useNavigate away to Calendar Page
+    console.log("## useSearchParams", formValues); // currently sends nothing to the backend, need to useNavigate away to Calendar Page
+    try {
+      const result = await (axios.post('http://localhost:8080/api/users/search', {...formValues}))
+    console.log("correct city", result.data);
+
+    } catch (error) {
+      console.log("error")
+    }
+
   };
 
   return (
