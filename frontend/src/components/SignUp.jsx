@@ -1,4 +1,7 @@
 import * as React from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 import {
   Button,
   TextField,
@@ -23,14 +26,16 @@ import {
 const defaultValues = {
   name: "",
   email: "",
-  streetAddress: "",
+  address: "",
   city: "",
   postalCode: "",
   password: "",
-  accountType: ""
+  acctType: "",
+  phoneNumber:""
 };
 
 export default function SignUp(props) {
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [formValues, setFormValues] = React.useState(defaultValues);
 
@@ -58,6 +63,14 @@ export default function SignUp(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formValues);
+    axios.post('http://localhost:8080/api/users/signup', {...formValues})
+    .then(response => {
+      localStorage.setItem("user", JSON.stringify(response.data))
+      navigate("/guardian")
+
+    })
+    .catch(err => console.log("error returning data"))
+
   };
 
   return (
@@ -71,7 +84,7 @@ export default function SignUp(props) {
           <DialogContentText>
             Please fill out the following to create a profile for your child:
           </DialogContentText>
-          <form onSubmit={handleSubmit}>
+          <div>
             <Grid container alignItems="center" justify="center" direction="column">
               <Grid item>
                 <TextField
@@ -103,10 +116,10 @@ export default function SignUp(props) {
                     autoFocus
                     margin="dense"
                     id="street-address"
-                    name="streetAddress"
+                    name="address"
                     label="Street Address"
                     type="address"
-                    value={formValues.streetAddress}
+                    value={formValues.address}
                     onChange={handleInputChange}
                     fullWidth
                     variant="standard"
@@ -157,8 +170,8 @@ export default function SignUp(props) {
                 <FormControl>
                   <FormLabel>Choose an Account Type</FormLabel>
                   <RadioGroup
-                    name="accountType"
-                    value={formValues.accountType}
+                    name="acctType"
+                    value={formValues.acctType}
                     onChange={handleInputChange}
                     row
                   >
@@ -177,11 +190,11 @@ export default function SignUp(props) {
                   </RadioGroup>
                 </FormControl>
               </Grid>
-              <Button variant="contained" color="primary" type="submit">
+              <Button onClick={handleSubmit} variant="contained" color="primary" type="submit">
                 Submit
               </Button>
             </Grid>
-          </form>
+          </div>
         </DialogContent>
       </Dialog>
     </div>

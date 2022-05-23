@@ -76,5 +76,12 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/search", (req, res) => {
+    console.log("searchCity", req.body)
+    res.send("ok")
+
+  })
+
   return router;
 };
