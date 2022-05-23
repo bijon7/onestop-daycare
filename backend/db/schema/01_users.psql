@@ -40,8 +40,8 @@ CREATE TABLE daycare (
   postalCode VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  acctType VARCHAR(255) NOT NULL
-
+  acctType VARCHAR(255) NOT NULL,
+  rating VARCHAR(255) NOT NULL
 );
 
 
