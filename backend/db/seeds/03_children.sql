@@ -1,6 +1,6 @@
 INSERT INTO children (name,age,guardianID)
 VALUES
-('Jerome',3,1),
+('Jerome',3,2),
 ('Zion',1,2),
 ('Mila',4,3),
 ('Jacob',4,4),
@@ -50,7 +50,7 @@ VALUES
 ('Makena',2,48),
 ('Jadyn',4,49),
 ('Kinsley',3,50),
-('Maximillian',2,1),
+('Maximillian',2,4),
 ('Adrien',3,2),
 ('Haley',2,3),
 ('Olivia',3,4),
