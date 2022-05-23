@@ -71,7 +71,7 @@ export default function SignUp(props) {
           navigate("/guardian")
         } else {
           localStorage.setItem("user", JSON.stringify(response.data))
-          navigate("/daycares")
+          navigate("/admin")
         }
     })
     .catch(err => console.log("error returning data"))
