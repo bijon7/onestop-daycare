@@ -71,7 +71,7 @@ export default function SignUp(props) {
           navigate("/guardian")
         } else {
           localStorage.setItem("user", JSON.stringify(response.data))
-          navigate("/daycare")
+          navigate("/daycares")
         }
     })
     .catch(err => console.log("error returning data"))
@@ -189,7 +189,7 @@ export default function SignUp(props) {
                       key="daycare"
                       value="daycare"
                       control={<Radio size="small" />}
-                      label="I am Daycare Administration"
+                      label="I am a Daycare Administrator"
                     />
                   </RadioGroup>
                 </FormControl>
