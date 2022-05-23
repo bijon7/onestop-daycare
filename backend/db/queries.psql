@@ -1,0 +1,47 @@
+
+DECLARE @daycareid AS INT = 5;
+
+SELECT
+daycare.name Name,
+--daycare.rating Rating,
+enrollment.year Year,
+enrolment.month Month,
+CASE
+WHEN daycare_profile.max_capacity - count(enrolment.daycare_id) = 0 THEN 'FULL'
+WHEN daycare_profile.max_capacity - count(enrolment.daycare_id) > 0 THEN
+daycare_profile.max_capacity - count(enrolment.daycare_id)
+END Vacancy
+FROM enrolment
+INNER JOIN daycare ON enrolment.daycare_id = daycare.id
+INNER JOIN daycare_profile ON daycare_profile.daycare_id = daycare.id
+WHERE daycare.id = @daycareid
+GROUP BY daycare.name, enrollment.year, enrolment.month, daycare_profile.max_capacity
+
+
+
+[ { Name: 'Daycare A', Year: 2022, Month:'January', Vacancy: 'FULL'},
+  { Name: 'Daycare B', Year: 2022, Month:'January', Vacancy: 'FULL'},
+  { Name: 'Daycare B', Year: 2022, Month:'February', Vacancy: 2},
+  { Name: 'Daycare B', Year: 2022, Month:'March', Vacancy: 5},
+  { Name: 'Daycare C', Year: 2022, Month:'January', Vacancy: 'FULL'} ]
+
+
+/*
+Shortlist - Shortlist
+Child profile - Children x Guardian
+Daycare dashboard - Daycare_profile x Daycare x enrolment
+-- My account - Daycare_profile Union Guardian
+*/
+
+
+
+-- Bookmark
+SELECT
+daycare.name, daycare_profile.bio, daycare_profile.max_capacity, daycare_profile.age_group
+FROM Shortlist
+INNER JOIN guardian ON guardian.id = shortlist.guardian_id
+INNER JOIN daycare ON daycare.id = shortlist.daycare_id
+INNER JOIN daycare_profile ON daycare_profile.daycare_id = daycare.id
+WHERE guardian.id = 5
+
+FROM
