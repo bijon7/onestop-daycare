@@ -51,3 +51,4 @@ VALUES
 ,('Crayon Prix Daycare','(780)743-1662','mobileip@icloud.com','2 NE. Paris Hill Rd.','B2G 8E8','Antigonish','password','daycare')
 ,('Growin Up','(579)228-3768','pavel@optonline.net','460 Tower Drive','N4X 2M5','St. Marys','password','daycare')
 ;
+
