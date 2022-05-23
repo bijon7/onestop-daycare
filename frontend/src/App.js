@@ -112,10 +112,12 @@ function App() {
         </a>
         </header> */}
         <Routes>
-          {userType === "admin" ? <Route path="/" element={<AdminDashboard />} /> : <Route path="/" element={<GuardianDashboard />} />}
+          {/* {userType === "admin" ? <Route path="/" element={<AdminDashboard />} /> : <Route path="/" element={<GuardianDashboard />} />} */}
+          <Route path="/" element={<SignIn />} />
           <Route path="about" element={<About />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="guardian" element={<GuardianDashboard />} />
+          <Route path="admin" element={<AdminDashboard />} />
           <Route path="daycares" element={<DaycareSchedules />} />
         </Routes>
       </div>

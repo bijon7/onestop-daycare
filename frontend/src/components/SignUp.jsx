@@ -64,13 +64,17 @@ export default function SignUp(props) {
     event.preventDefault();
     console.log(formValues);
     axios.post('http://localhost:8080/api/users/signup', {...formValues})
-    .then(response => {
-      localStorage.setItem("user", JSON.stringify(response.data))
-      navigate("/guardian")
-
+    .then(
+      response => {
+        if (formValues.acctType === "guardian") {
+          localStorage.setItem("user", JSON.stringify(response.data))
+          navigate("/guardian")
+        } else {
+          localStorage.setItem("user", JSON.stringify(response.data))
+          navigate("/admin")
+        }
     })
     .catch(err => console.log("error returning data"))
-
   };
 
   return (
@@ -185,7 +189,7 @@ export default function SignUp(props) {
                       key="daycare"
                       value="daycare"
                       control={<Radio size="small" />}
-                      label="I am Daycare Administration"
+                      label="I am a Daycare Administrator"
                     />
                   </RadioGroup>
                 </FormControl>
