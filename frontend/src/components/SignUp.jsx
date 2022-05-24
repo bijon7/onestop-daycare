@@ -65,8 +65,13 @@ export default function SignUp(props) {
     console.log(formValues);
     axios.post('http://localhost:8080/api/users/signup', {...formValues})
     .then(response => {
+      if (formValues.acctType === 'guardian') {
       localStorage.setItem("user", JSON.stringify(response.data))
       navigate("/guardian")
+      } else {
+        localStorage.setItem("user", JSON.stringify(response.data))
+      navigate("/admin")
+      }
 
     })
     .catch(err => console.log("error returning data"))
