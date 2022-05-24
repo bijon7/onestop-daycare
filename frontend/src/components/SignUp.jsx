@@ -15,11 +15,8 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
-  Box,
   Grid,
   Select,
-  MenuItem,
-  Slider
 } from "@mui/material";
 
 // values that start
@@ -31,7 +28,7 @@ const defaultValues = {
   postalCode: "",
   password: "",
   acctType: "",
-  phoneNumber:""
+  phoneNumber: ""
 };
 
 export default function SignUp(props) {
@@ -63,18 +60,18 @@ export default function SignUp(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formValues);
-    axios.post('http://localhost:8080/api/users/signup', {...formValues})
-    .then(
-      response => {
-        if (formValues.acctType === "guardian") {
-          localStorage.setItem("user", JSON.stringify(response.data))
-          navigate("/guardian")
-        } else {
-          localStorage.setItem("user", JSON.stringify(response.data))
-          navigate("/admin")
-        }
-    })
-    .catch(err => console.log("error returning data"))
+    axios.post('http://localhost:8080/api/users/signup', { ...formValues })
+      .then(
+        response => {
+          if (formValues.acctType === "guardian") {
+            localStorage.setItem("user", JSON.stringify(response.data))
+            navigate("/guardian")
+          } else {
+            localStorage.setItem("user", JSON.stringify(response.data))
+            navigate("/admin")
+          }
+        })
+      .catch(err => console.log("error returning data"))
   };
 
   return (
@@ -84,122 +81,141 @@ export default function SignUp(props) {
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Sign Up</DialogTitle>
-        <DialogContent>
+        <DialogContent >
           <DialogContentText>
-            Please fill out the following to create a profile for your child:
+            Please fill out the following:
           </DialogContentText>
-          <div>
-            <Grid container alignItems="center" justify="center" direction="column">
-              <Grid item>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  name="name"
-                  label="Name"
-                  type="text"
-                  value={formValues.name}
-                  onChange={handleInputChange}
-                  fullWidth
-                  variant="standard"
-                />
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="email"
-                  name="email"
-                  label="E-Mail"
-                  type="email"
-                  value={formValues.email}
-                  onChange={handleInputChange}
-                  fullWidth
-                  variant="standard"
-                />
-                <Grid item>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="street-address"
-                    name="address"
-                    label="Street Address"
-                    type="address"
-                    value={formValues.address}
-                    onChange={handleInputChange}
-                    fullWidth
-                    variant="standard"
-                  />
-                </Grid>
-                <Grid item>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="city"
-                    name="city"
-                    label="City"
-                    type="city"
-                    value={formValues.city}
-                    onChange={handleInputChange}
-                    fullWidth
-                    variant="standard"
-                  />
-                </Grid>
-                <Grid item>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="postal-code"
-                    name="postalCode"
-                    label="Postal Code"
-                    type="postalcode"
-                    value={formValues.postalCode}
-                    onChange={handleInputChange}
-                    fullWidth
-                    variant="standard"
-                  />
-                  </Grid>
-                  <Grid item>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="create-password"
-                    name="password"
-                    label="Password"
-                    type="password"
-                    value={formValues.password}
-                    onChange={handleInputChange}
-                    fullWidth
-                    variant="standard"
-                  />
-                </Grid>
-                <FormControl>
-                  <FormLabel>Choose an Account Type</FormLabel>
-                  <RadioGroup
-                    name="acctType"
-                    value={formValues.acctType}
-                    onChange={handleInputChange}
-                    row
-                  >
-                    <FormControlLabel
-                      key="guardian"
-                      value="guardian"
-                      control={<Radio size="small" />}
-                      label="I am a Guardian"
-                    />
-                    <FormControlLabel
-                      key="daycare"
-                      value="daycare"
-                      control={<Radio size="small" />}
-                      label="I am a Daycare Administrator"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </Grid>
-              <Button onClick={handleSubmit} variant="contained" color="primary" type="submit">
-                Submit
-              </Button>
+          <Grid container alignItems="center" justify="center" direction="column" wi>
+            <Grid item >
+              <TextField
+                autoFocus
+                margin="dense"
+                id="full-name"
+                name="name"
+                label="Full Name"
+                type="text"
+                value={formValues.name}
+                onChange={handleInputChange}
+                fullWidth
+                variant="standard"
+              />
             </Grid>
-          </div>
+            <Grid item>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="email"
+                name="email"
+                label="E-Mail"
+                type="email"
+                value={formValues.email}
+                onChange={handleInputChange}
+                fullWidth
+                variant="standard"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="street-address"
+                name="address"
+                label="Street Address"
+                type="text"
+                value={formValues.address}
+                onChange={handleInputChange}
+                fullWidth
+                variant="standard"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="home-city"
+                name="city"
+                label="City"
+                type="text"
+                value={formValues.city}
+                onChange={handleInputChange}
+                fullWidth
+                variant="standard"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="postal-code"
+                name="postalCode"
+                label="Postal Code"
+                type="text"
+                value={formValues.postalCode}
+                onChange={handleInputChange}
+                fullWidth
+                variant="standard"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="phone-number"
+                name="phoneNumber"
+                label="Phone Number"
+                type="text"
+                value={formValues.phoneNumber}
+                onChange={handleInputChange}
+                fullWidth
+                variant="standard"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="create-password"
+                name="password"
+                label="Password"
+                type="password"
+                value={formValues.password}
+                onChange={handleInputChange}
+                fullWidth
+                variant="standard"
+              />
+            </Grid>
+            <Grid item>
+              <FormControl>
+                <FormLabel>Choose an Account Type</FormLabel>
+                <RadioGroup
+                  name="acctType"
+                  value={formValues.acctType}
+                  onChange={handleInputChange}
+                  row
+                >
+                  <FormControlLabel
+                    key="guardian"
+                    value="guardian"
+                    control={<Radio size="small" />}
+                    label="I am a Guardian"
+                  />
+                  <FormControlLabel
+                    key="daycare"
+                    value="daycare"
+                    control={<Radio size="small" />}
+                    label="I am a Daycare Administrator"
+                  />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Button onClick={handleSubmit} variant="contained" color="primary" type="submit">
+              Submit
+            </Button>
+          </Grid>
         </DialogContent>
+        <DialogActions>
+
+        </DialogActions>
       </Dialog>
     </div>
   );
