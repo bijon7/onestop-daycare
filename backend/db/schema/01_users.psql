@@ -40,10 +40,10 @@ CREATE TABLE daycare (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   acctType VARCHAR(255) NOT NULL,
-  rating VARCHAR(255) NOT NULL,
-  maxCapacity VARCHAR(255) NOT NULL,
-  bio VARCHAR(255) NOT NULL,
-  ageGroup VARCHAR(255) NOT NULL
+  rating VARCHAR(255),
+  maxCapacity VARCHAR(255),
+  bio VARCHAR(255),
+  ageGroup VARCHAR(255)
 );
 
 
