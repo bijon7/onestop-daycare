@@ -13,4 +13,5 @@
 -- INNER JOIN daycare ON enrolment.daycare_id = daycare.id
 -- INNER JOIN daycare_profile ON daycare_profile.daycare_id = daycare.id
 -- GROUP BY daycare.name, enrolment.year, enrolment.month, daycare_profile.max_capacity;
+--WHERE clause
 -- -- testing git add

@@ -26,7 +26,7 @@ module.exports = (db) => {
   //   });
   //   return router;
   // };
-
+  let queryScript = "";
   router.post("/signup", (req, res) => {
     const {
       name,
@@ -46,7 +46,7 @@ module.exports = (db) => {
 
     }
 
-    let queryScript = "";
+
     if (acctType === "daycare") {
       queryScript = `
         INSERT INTO guardian (name, phoneNumber, address, city, postalCode,  email, password, acctType)
@@ -67,7 +67,7 @@ module.exports = (db) => {
     db.query(queryScript, [name, phoneNumber, address, city, postalCode, email, password, acctType])
       .then(data => {
         const user = data.rows[0];
-        res.json({ user });
+        res.json({ user }); //result.data.user
       })
       .catch(err => {
         console.log(err);
@@ -78,8 +78,18 @@ module.exports = (db) => {
   });
 
   router.post("/search", (req, res) => {
+    queryScript = `SELECT *
+    FROM daycare
+    WHERE city = $1;`
+
+    db.query(queryScript, [req.body.city])
+      .then(data => {
+        const city = data.rows;
+        console.log("city", city)
+        res.json(city)
+
+      });
     console.log("searchCity", req.body)
-    res.send("ok")
 
   })
 
