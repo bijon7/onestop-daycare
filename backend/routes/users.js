@@ -49,11 +49,10 @@ module.exports = (db) => {
     let queryScript = "";
     if (acctType === "daycare") {
       queryScript = `
-        INSERT INTO guardian (name, phoneNumber, address, city, postalCode,  email, password, acctType)
+        INSERT INTO guardian (name, phoneNumber, address, city, postalCode, email, password, acctType)
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
        RETURNING *;
       `
-
     }
 
     else {
