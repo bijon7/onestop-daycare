@@ -15,7 +15,6 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
-  Grid,
   Select,
 } from "@mui/material";
 
@@ -79,14 +78,12 @@ export default function SignUp(props) {
       <Button variant="outlined" onClick={handleClickOpen}>
         CREATE AN ACCOUNT
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} >
         <DialogTitle>Sign Up</DialogTitle>
-        <DialogContent >
+        <DialogContent align="center">
           <DialogContentText>
             Please fill out the following:
           </DialogContentText>
-          <Grid container alignItems="center" justify="center" direction="column" wi>
-            <Grid item >
               <TextField
                 autoFocus
                 margin="dense"
@@ -99,8 +96,6 @@ export default function SignUp(props) {
                 fullWidth
                 variant="standard"
               />
-            </Grid>
-            <Grid item>
               <TextField
                 autoFocus
                 margin="dense"
@@ -113,8 +108,6 @@ export default function SignUp(props) {
                 fullWidth
                 variant="standard"
               />
-            </Grid>
-            <Grid item>
               <TextField
                 autoFocus
                 margin="dense"
@@ -127,8 +120,6 @@ export default function SignUp(props) {
                 fullWidth
                 variant="standard"
               />
-            </Grid>
-            <Grid item>
               <TextField
                 autoFocus
                 margin="dense"
@@ -141,8 +132,6 @@ export default function SignUp(props) {
                 fullWidth
                 variant="standard"
               />
-            </Grid>
-            <Grid item>
               <TextField
                 autoFocus
                 margin="dense"
@@ -155,8 +144,6 @@ export default function SignUp(props) {
                 fullWidth
                 variant="standard"
               />
-            </Grid>
-            <Grid item>
               <TextField
                 autoFocus
                 margin="dense"
@@ -169,8 +156,6 @@ export default function SignUp(props) {
                 fullWidth
                 variant="standard"
               />
-            </Grid>
-            <Grid item>
               <TextField
                 autoFocus
                 margin="dense"
@@ -183,8 +168,6 @@ export default function SignUp(props) {
                 fullWidth
                 variant="standard"
               />
-            </Grid>
-            <Grid item>
               <FormControl>
                 <FormLabel>Choose an Account Type</FormLabel>
                 <RadioGroup
@@ -207,11 +190,10 @@ export default function SignUp(props) {
                   />
                 </RadioGroup>
               </FormControl>
-            </Grid>
+              <br />
             <Button onClick={handleSubmit} variant="contained" color="primary" type="submit">
               Submit
             </Button>
-          </Grid>
         </DialogContent>
         <DialogActions>
 
