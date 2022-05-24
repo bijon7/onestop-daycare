@@ -63,7 +63,7 @@ export default function SignUp(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formValues);
-    axios.post('http://localhost:8080/api/users/signup', {...formValues})
+    axios.post('/api/users/signup', {...formValues})
     .then(
       response => {
         if (formValues.acctType === "guardian") {
