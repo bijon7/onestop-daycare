@@ -61,13 +61,3 @@ CREATE TABLE shortlist (
   guardianID   INTEGER REFERENCES guardian(id) ON DELETE CASCADE,
   daycareID INTEGER REFERENCES daycare(id) ON DELETE CASCADE
 );
-
--- CREATE TABLE daycareProfile (
---   id SERIAL PRIMARY KEY NOT NULL,
---   maxCapacity VARCHAR(255) NOT NULL,
---   bio VARCHAR(255) NOT NULL,
---   address VARCHAR(255) NOT NULL,
---   ageGroup VARCHAR(255) NOT NULL,
---   daycareID INTEGER REFERENCES daycare(id) ON DELETE CASCADE
--- );
-
