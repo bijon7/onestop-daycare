@@ -9,10 +9,11 @@ import {
   Paper,
   Rating
 } from "@mui/material";
-import "./DaycareSchedules.scss"
+import "./DaycareSchedules.scss";
 import DaycareProfile from "../components/DaycareProfile";
 import {useSearchParams, useNavigate }  from "react-router-dom";
 import axios from "axios";
+
 
 
 
