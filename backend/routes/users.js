@@ -77,8 +77,18 @@ module.exports = (db) => {
   });
 
   router.post("/search", (req, res) => {
+    queryScript = `SELECT *
+    FROM daycare
+    WHERE city = $1;`
+
+    db.query(queryScript, [req.body.city])
+      .then(data => {
+        const city = data.rows;
+        console.log("city", city)
+        res.json(city)
+
+      });
     console.log("searchCity", req.body)
-    res.send("ok")
 
   })
 

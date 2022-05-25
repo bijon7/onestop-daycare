@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import "./DaycareSchedules.scss"
 import DaycareProfile from "../components/DaycareProfile";
+import {useSearchParams, useNavigate }  from "react-router-dom";
+import axios from "axios";
 
 function createData(daycare_id, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) {
   return { daycare_id, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec };
@@ -23,6 +25,21 @@ const testRows = [
 ];
 
 export default function DaycareSchedules() {
+
+  const [daycares, setDaycares] = React.useState (testRows);
+  const [searchParams, setSearchParams] = useSearchParams()
+  const navigate = useNavigate();
+  React.useEffect (()=> {
+    const city = searchParams.get("city")
+     axios.post('/api/users/search', {"city": city})
+     .then(result => {
+
+      setDaycares(result.data);
+      console.log("correct city", result.data);
+     })
+  },
+  [])
+
   return (
     <div className="daycare-table">
       <TableContainer component={Paper} elevation={24}>
