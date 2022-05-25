@@ -94,53 +94,34 @@ const AdminDashboard = () => {
         <div className="left">
           <div className="new-application">
             <h3>New Applications</h3>
-
-            {testData.child.map((data) => {
-              return (
-                <ChildProfile
-                  key={data.id}
-                  id={data.id}
-                  name={data.name}
-                  age={data.age}
-                  special_req={data.special_req}
-                  user={data.guardian} />
-              );
-            })}
-
+            <div className="applications">
+              {testData.child.map((data) => {
+                return (
+                  <ChildProfile
+                    key={data.id}
+                    id={data.id}
+                    name={data.name}
+                    age={data.age}
+                    special_req={data.special_req}
+                    user={data.guardian} />
+                );
+              })}
+            </div>
           </div>
           <div className="daycare-profile">
             <h3>Update Profile</h3>
             <form className="daycare-profile-form" onSubmit={handleSubmit}>
-              <label>Daycare Name:
-                <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-              </label>
-              <label>Street:
-                <input id="street" type="text" value={street} onChange={(e) => setStreet(e.target.value)} />
-              </label>
-              <label>City:
-                <input id="city" type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-              </label>
-              <label>Postal Code:
-                <input id="postalCode" type="text" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
-              </label>
-              <label>Bio:
-                <input id="bio" type="text" value={bio} onChange={(e) => setBio(e.target.value)} />
-              </label>
-              <label>Age Group:
-                <input id="age" type="text" value={age} onChange={(e) => setAge(e.target.value)} />
-              </label>
-              <label>Max Capacity:
-                <input id="capacity" type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
-              </label>
+              <input id="name" type="text" placeholder="Daycare Name" value={name} onChange={(e) => setName(e.target.value)} />
+              <input id="street" type="text" placeholder="Street" value={street} onChange={(e) => setStreet(e.target.value)} />
+              <input id="city" type="text" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} />
+              <input id="postalCode" type="text" placeholder="Postal Code" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
+              <input id="bio" type="text" placeholder="Bio" value={bio} onChange={(e) => setBio(e.target.value)} />
+              <input id="age" type="text" placeholder="Age Group" value={age} onChange={(e) => setAge(e.target.value)} />
+              <input id="capacity" type="text" placeholder="Max Capacity" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
               <input id="submit-button" type="submit" value="SUBMIT" />
             </form>
             <div className="displayed-profile">
               <h3>Daycare Profile</h3>
-              {/*
-              <h4 id="daycare-title">{title}</h4>
-              <p>Maximum capacity of children: {capacity}.</p>
-              <p>{bio}</p>
-              <p>The age range of children is {age}.</p> */}
               <DaycareProfile
                 key={guardianShortList[0].id}
                 id={guardianShortList[0].id}
