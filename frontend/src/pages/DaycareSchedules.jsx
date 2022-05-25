@@ -15,6 +15,13 @@ import {useSearchParams, useNavigate }  from "react-router-dom";
 import axios from "axios";
 
 
+
+
+
+
+
+
+
 function createData(daycare_id, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) {
   return { daycare_id, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec };
 }
