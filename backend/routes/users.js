@@ -83,8 +83,9 @@ module.exports = (db) => {
 
     db.query(queryScript, [req.body.city])
       .then(data => {
+        console.log("REQ.BODY:", req.body)
         const city = data.rows;
-        console.log("city", city)
+        console.log("city searched:", city)
         res.json(city)
 
       });

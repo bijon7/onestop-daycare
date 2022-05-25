@@ -1,4 +1,6 @@
 
+/*
+
 DECLARE @daycareid AS INT = 5;
 
 SELECT
@@ -45,3 +47,57 @@ INNER JOIN daycare_profile ON daycare_profile.daycare_id = daycare.id
 WHERE guardian.id = 5
 
 FROM
+
+*/
+
+
+; with daycares AS
+(
+SELECT
+daycare.id AS daycare_id,
+daycare.name AS Name,
+daycare.rating AS Rating,
+enrolment.year AS Year,
+enrolment.month AS Month,
+COUNT(enrolment.daycareID) as Spots,
+CAST(daycare.maxCapacity AS INT) - count(enrolment.daycareID) AS Vacancy
+-- CASE
+-- WHEN CAST(daycare.maxCapacity AS INT) - count(enrolment.daycareID) = 0 THEN 'FULL'
+-- WHEN CAST(daycare.maxCapacity AS INT) - count(enrolment.daycareID) > 0 THEN
+-- (CAST(daycare.maxCapacity AS INT) - count(enrolment.daycareId))
+-- ELSE 'Overbooked'
+-- END AS Vacancy
+FROM enrolment
+INNER JOIN daycare ON enrolment.daycareID = daycare.id
+WHERE daycare.id = Req.body.daycare_id
+GROUP BY daycare.id, daycare.name, daycare.rating, enrolment.year, enrolment.month, daycare.maxCapacity;
+)
+
+
+SELECT
+daycares.Vacancy AS jan
+FROM daycares
+WHERE daycare_id =1 AND daycares.month =1
+
+SELECT
+daycare.id AS daycare_id,
+daycare.name AS Name,
+daycare.rating AS Rating,
+CAST(daycare.maxCapacity AS INT) - count(enrolment.daycareID) * enrolment.month=1 AS jan,
+ AS feb,
+AS mar,
+AS apr,
+AS may,
+AS jun,
+AS jul,
+AS sep,
+AS aug,
+AS oct,
+AS nov,
+AS dec,
+
+
+[
+  {daycare_id:1, month:1, vacancy:2},
+  {daycare_id:1, month:2, vacancy:1}
+]
