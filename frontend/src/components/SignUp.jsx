@@ -16,6 +16,7 @@ import {
   Radio,
   RadioGroup,
   Select,
+  Grid
 } from "@mui/material";
 
 // values that start
@@ -84,116 +85,119 @@ export default function SignUp(props) {
           <DialogContentText>
             Please fill out the following:
           </DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                id="full-name"
-                name="name"
-                label="Full Name"
-                type="text"
-                value={formValues.name}
+          <Grid>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="full-name"
+              name="name"
+              label="Full Name"
+              type="text"
+              value={formValues.name}
+              onChange={handleInputChange}
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="email"
+              name="email"
+              label="E-Mail"
+              type="email"
+              value={formValues.email}
+              onChange={handleInputChange}
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="street-address"
+              name="address"
+              label="Street Address"
+              type="text"
+              value={formValues.address}
+              onChange={handleInputChange}
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="home-city"
+              name="city"
+              label="City"
+              type="text"
+              value={formValues.city}
+              onChange={handleInputChange}
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="postal-code"
+              name="postalCode"
+              label="Postal Code"
+              type="text"
+              value={formValues.postalCode}
+              onChange={handleInputChange}
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="phone-number"
+              name="phoneNumber"
+              label="Phone Number"
+              type="text"
+              value={formValues.phoneNumber}
+              onChange={handleInputChange}
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="create-password"
+              name="password"
+              label="Password"
+              type="password"
+              value={formValues.password}
+              onChange={handleInputChange}
+              fullWidth
+              variant="standard"
+            />
+            <FormControl>
+              <FormLabel>Choose an Account Type</FormLabel>
+              <RadioGroup
+                name="acctType"
+                value={formValues.acctType}
                 onChange={handleInputChange}
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                id="email"
-                name="email"
-                label="E-Mail"
-                type="email"
-                value={formValues.email}
-                onChange={handleInputChange}
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                id="street-address"
-                name="address"
-                label="Street Address"
-                type="text"
-                value={formValues.address}
-                onChange={handleInputChange}
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                id="home-city"
-                name="city"
-                label="City"
-                type="text"
-                value={formValues.city}
-                onChange={handleInputChange}
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                id="postal-code"
-                name="postalCode"
-                label="Postal Code"
-                type="text"
-                value={formValues.postalCode}
-                onChange={handleInputChange}
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                id="phone-number"
-                name="phoneNumber"
-                label="Phone Number"
-                type="text"
-                value={formValues.phoneNumber}
-                onChange={handleInputChange}
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                id="create-password"
-                name="password"
-                label="Password"
-                type="password"
-                value={formValues.password}
-                onChange={handleInputChange}
-                fullWidth
-                variant="standard"
-              />
-              <FormControl>
-                <FormLabel>Choose an Account Type</FormLabel>
-                <RadioGroup
-                  name="acctType"
-                  value={formValues.acctType}
-                  onChange={handleInputChange}
-                  row
-                >
-                  <FormControlLabel
-                    key="guardian"
-                    value="guardian"
-                    control={<Radio size="small" />}
-                    label="I am a Guardian"
-                  />
-                  <FormControlLabel
-                    key="daycare"
-                    value="daycare"
-                    control={<Radio size="small" />}
-                    label="I am a Daycare Administrator"
-                  />
-                </RadioGroup>
-              </FormControl>
-              <br />
+                row
+              >
+                <FormControlLabel
+                  key="guardian"
+                  value="guardian"
+                  control={<Radio size="small" />}
+                  label="I am a Guardian"
+                />
+                <FormControlLabel
+                  key="daycare"
+                  value="daycare"
+                  control={<Radio size="small" />}
+                  label="I am a Daycare Administrator"
+                />
+              </RadioGroup>
+            </FormControl>
+            <br />
             <Button onClick={handleSubmit} variant="contained" color="primary" type="submit">
               Submit
             </Button>
+          </Grid>
+
         </DialogContent>
         <DialogActions>
 

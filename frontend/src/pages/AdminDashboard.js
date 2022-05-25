@@ -85,10 +85,12 @@ const AdminDashboard = () => {
     console.log(formValues);
   }
 
+  const userName = JSON.parse(localStorage.getItem("user")).user.name;
+
   return (
     <div className="admin-dashboard">
       <div className="daycare-name">
-        <h2>Daycare Name</h2>
+        <h2>Daycare Name: {userName}</h2>
       </div>
       <div className="dashboard">
         <div className="left">

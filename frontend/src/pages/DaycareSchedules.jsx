@@ -22,14 +22,14 @@ import axios from "axios";
 
 
 
-function createData(daycare_id, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) {
-  return { daycare_id, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec };
+function createData(daycare_id, city, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) {
+  return { daycare_id, city, rating, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec };
 }
 
 const testRows = [
-  createData(1, 2, 10, 10, 5, 5, "Full", "Full", "Full", "Full", 10, 10, 5, 5),
-  createData(2, 3, 10, "Full", "Full", 10, 5, 5, "Full", 10, "Full", 10, 5, 5),
-  createData(3, 5, 10, 5, "Full", "Full", 10, 5, "Full", 10, 5, "Full", 10, 5),
+  createData(1, 2, 5, 10, 5, 5, "Full", "Full", "Full", "Full", 10, 10, 5, 5),
+  createData(2, 3.5, 3, "Full", "Full", 10, 5, 5, "Full", 10, "Full", 10, 5, 5),
+  createData(3, 5, 1, 5, "Full", "Full", 10, 5, "Full", 10, 5, "Full", 10, 5),
 ];
 console.log(testRows);
 

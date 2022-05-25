@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { FormControl, InputLabel, Input, TextField, Button } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 import axios from "axios";
 
 
@@ -53,14 +54,16 @@ export default function DayCareSearch() {
       <form onSubmit={handleSubmit}>
         <FormControl className="daycare-search">
           <TextField
-            id="search"
-            label="Search through Cities"
+            id="daycare-search"
+            label="Search Daycares!"
             name="search"
             type="search"
             value={formValues.search}
-            onChange={handleInputChange} />
+            onChange={handleInputChange}
+            variant="standard" />
+            <br />
           <Button variant="contained" color="primary" type="submit">
-            Submit
+            <SearchIcon />
           </Button>
         </FormControl>
       </form>

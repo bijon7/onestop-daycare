@@ -1,16 +1,34 @@
 .guardian-dashboard {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  background-image: url("../assets/images/pexels-photo-8612921.png");
+  background-repeat:no-repeat;
+  background-size: 100vw;
+  background-color: #d3d3d3;
   padding: 10px;
-  height: auto;
+  height: 100vw;
 }
 
+.guardian-dashboard_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.562);
+  color: black;
+  margin: 10px;
+}
+
+.guardian-dashboard_main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 .guardian-dashboard_sections {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: auto;
+  height: 100%;
   width: 42%;
 }
 
@@ -20,6 +38,7 @@
 
 .guardian-dashboard_mid {
   @extend %paper_section;
+  height: 50%;
 }
 
 .guardian-dashboard_col {
