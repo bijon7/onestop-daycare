@@ -51,58 +51,60 @@ export default function DaycareSchedules() {
 
   return (
     <div className="daycare-table">
-      <TableContainer component={Paper} elevation={24}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-              <h2>Daycare Availability: </h2>
-              <sub>Search through our various Daycares and see the available openings per month. Each Daycare</sub>
-            </TableRow>
-            <TableRow>
-              <TableCell><h4>Daycares</h4></TableCell>
-              <TableCell><h4>Rating</h4></TableCell>
-              <TableCell align="right">January</TableCell>
-              <TableCell align="right">February</TableCell>
-              <TableCell align="right">March</TableCell>
-              <TableCell align="right">April</TableCell>
-              <TableCell align="right">May</TableCell>
-              <TableCell align="right">June</TableCell>
-              <TableCell align="right">July</TableCell>
-              <TableCell align="right">August</TableCell>
-              <TableCell align="right">September</TableCell>
-              <TableCell align="right">October</TableCell>
-              <TableCell align="right">November</TableCell>
-              <TableCell align="right">December</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {testRows.map((row) => (
-              <TableRow
-                key={row.daycare_id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell>
-                  <DaycareProfile key={row.daycare_id} daycare={row.daycare_id} />
-                </TableCell>
-                <TableCell>
-                  <Rating name="read-only" value={row.rating} readOnly />
-                </TableCell>
-                <TableCell align="right">{row.jan}</TableCell>
-                <TableCell align="right">{row.feb}</TableCell>
-                <TableCell align="right">{row.mar}</TableCell>
-                <TableCell align="right">{row.apr}</TableCell>
-                <TableCell align="right">{row.may}</TableCell>
-                <TableCell align="right">{row.jun}</TableCell>
-                <TableCell align="right">{row.jul}</TableCell>
-                <TableCell align="right">{row.aug}</TableCell>
-                <TableCell align="right">{row.sep}</TableCell>
-                <TableCell align="right">{row.oct}</TableCell>
-                <TableCell align="right">{row.nov}</TableCell>
-                <TableCell align="right">{row.sep}</TableCell>
+      <TableContainer className="table" component={Paper} elevation={24}>
+        <div className="table2">
+          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <h2 id="title">Daycare Availability: </h2>
+                <sub>Search through our various Daycares and see the available openings per month. Each Daycare</sub>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+              <TableRow>
+                <TableCell><h4>Daycares</h4></TableCell>
+                <TableCell><h4>Rating</h4></TableCell>
+                <TableCell align="right">JAN</TableCell>
+                <TableCell align="right">FEB</TableCell>
+                <TableCell align="right">MAR</TableCell>
+                <TableCell align="right">APR</TableCell>
+                <TableCell align="right">MAY</TableCell>
+                <TableCell align="right">JUN</TableCell>
+                <TableCell align="right">JUL</TableCell>
+                <TableCell align="right">AUG</TableCell>
+                <TableCell align="right">SEP</TableCell>
+                <TableCell align="right">OCT</TableCell>
+                <TableCell align="right">NOV</TableCell>
+                <TableCell align="right">DEC</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {testRows.map((row) => (
+                <TableRow
+                  key={row.daycare_id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell>
+                    <DaycareProfile key={row.daycare_id} daycare={row.daycare_id} />
+                  </TableCell>
+                  <TableCell>
+                    <Rating name="read-only" value={row.rating} readOnly />
+                  </TableCell>
+                  <TableCell align="right">{row.jan}</TableCell>
+                  <TableCell align="right">{row.feb}</TableCell>
+                  <TableCell align="right">{row.mar}</TableCell>
+                  <TableCell align="right">{row.apr}</TableCell>
+                  <TableCell align="right">{row.may}</TableCell>
+                  <TableCell align="right">{row.jun}</TableCell>
+                  <TableCell align="right">{row.jul}</TableCell>
+                  <TableCell align="right">{row.aug}</TableCell>
+                  <TableCell align="right">{row.sep}</TableCell>
+                  <TableCell align="right">{row.oct}</TableCell>
+                  <TableCell align="right">{row.nov}</TableCell>
+                  <TableCell align="right">{row.sep}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </TableContainer>
     </div>
   );
