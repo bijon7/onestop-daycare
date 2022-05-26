@@ -8,14 +8,16 @@ import About from './components/About';
 import AdminDashboard from './pages/AdminDashboard';
 import GuardianDashboard from './pages/GuardianDashboard';
 import DaycareSchedules from './pages/DaycareSchedules';
-import { Button,
+import {
+  Button,
   ClickAwayListener,
   Grow,
   Paper,
   Popper,
   MenuItem,
   MenuList,
-  Stack } from "@mui/material";
+  Stack
+} from "@mui/material";
 
 function App() {
   const [userType, setUserType] = useState("admin");
@@ -47,55 +49,55 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <nav className="top-nav">
-          <Link to="/">Home</Link>{' '}
-          <Link to="/about">About</Link>{' '}
-          <Link to="/signin">Sign In</Link>{' '}
+          <Link to="/"><Button >Home</Button></Link>{' '}
+          <Link to="/about"><Button variant="button">About</Button></Link>{' '}
+          <Link to="/signin"><Button variant="button">Sign In</Button></Link>{' '}
           <Stack direction="row" spacing={2}>
-      <div>
-        <Button
-          ref={anchorRef}
-          id="composition-button"
-          aria-controls={open ? 'composition-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          Options
-        </Button>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          placement="bottom-start"
-          transition
-          disablePortal
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === 'bottom-start' ? 'left top' : 'left bottom',
-              }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="composition-menu"
-                    aria-labelledby="composition-button"
-                    onKeyDown={handleListKeyDown}
+            <div>
+              <Button
+                ref={anchorRef}
+                id="composition-button"
+                aria-controls={open ? 'composition-menu' : undefined}
+                aria-expanded={open ? 'true' : undefined}
+                aria-haspopup="true"
+                onClick={handleToggle}
+              >
+                Options
+              </Button>
+              <Popper
+                open={open}
+                anchorEl={anchorRef.current}
+                role={undefined}
+                placement="bottom-start"
+                transition
+                disablePortal
+              >
+                {({ TransitionProps, placement }) => (
+                  <Grow
+                    {...TransitionProps}
+                    style={{
+                      transformOrigin:
+                        placement === 'bottom-start' ? 'left top' : 'left bottom',
+                    }}
                   >
-                    <MenuItem id="my-profile" onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem id="logout" onClick={handleClose}>Logout</MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-      </div>
-    </Stack>
+                    <Paper>
+                      <ClickAwayListener onClickAway={handleClose}>
+                        <MenuList
+                          autoFocusItem={open}
+                          id="composition-menu"
+                          aria-labelledby="composition-button"
+                          onKeyDown={handleListKeyDown}
+                        >
+                          <MenuItem id="my-profile" onClick={handleClose}>Profile</MenuItem>
+                          <MenuItem id="logout" onClick={handleClose}>Logout</MenuItem>
+                        </MenuList>
+                      </ClickAwayListener>
+                    </Paper>
+                  </Grow>
+                )}
+              </Popper>
+            </div>
+          </Stack>
         </nav>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
