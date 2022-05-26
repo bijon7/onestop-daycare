@@ -76,7 +76,7 @@ export default function DaycareSchedules() {
                 <TableCell align="right">DEC</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody className="data">
+            <TableBody>
               {testRows.map((row) => (
                 <TableRow
                   key={row.daycare_id}
